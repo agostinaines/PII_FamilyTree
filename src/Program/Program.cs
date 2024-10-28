@@ -7,7 +7,14 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Node n1 = new Node(1);
+            Person Ana = new Person("Ana Martinez", 39);
+            Person Martina = new Person("Martina Caetano", 18);
+
+            Node<Person> raiz = new Node<Person>(Ana);
+            Node<Person> nosequeponeraca = new Node<Person>(Martina);
+
+            /*
+            Node n1 = new Node(Ana);
             Node n2 = new Node(2);
             Node n3 = new Node(3);
             Node n4 = new Node(4);
@@ -22,7 +29,7 @@ namespace Program
             n2.AddChildren(n5);
 
             n3.AddChildren(n6);
-            n3.AddChildren(n7);
+            n3.AddChildren(n7);*/
 
             // visitar el árbol aquí
         }
