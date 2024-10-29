@@ -11,6 +11,4 @@ public class Person
         this.Name = name;
         this.Age = age;
     }
-    
-    
 }
