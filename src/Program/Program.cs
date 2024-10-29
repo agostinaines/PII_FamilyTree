@@ -12,6 +12,16 @@ namespace Program
 
             Node<Person> raiz = new Node<Person>(Ana);
             Node<Person> nosequeponeraca = new Node<Person>(Martina);
+            
+            Person Luis = new Person("Luis", 18);
+            Person Marimarta = new Person("Marimarta", 86);
+            Person Lunin = new Person("Lunin", 24);
+            Person Dorothy = new Person("Dorothy", 54);
+            Node<Person> n1 = new Node<Person>(Marimarta);
+            Node<Person> n2 = new Node<Person>(Dorothy);
+            Node<Person> n3 = new Node<Person>(Lunin);
+            Node<Person> n4 = new Node<Person>(Luis);
+            n1.AddChildren(n2);
 
             /*
             Node n1 = new Node(Ana);

@@ -5,28 +5,27 @@ namespace Library
 {
     public class Node<T>
     {
-        private T content;
+        private T value;
+        private List<Node<T>> children = new List<Node<T>>();
 
-        private List<T> children = new List<T>();
-
-        public T Content
+        public T Value
         {
-            get { return this.content; }
+            get { return this.value; }
         }
 
-        public ReadOnlyCollection<T> Children
+        public ReadOnlyCollection<Node<T>> Children
         {
             get { return this.children.AsReadOnly(); }
         }
 
-        public Node(T content)
+        public Node(T value)
         {
-            this.content = content;
+            this.value = value;
         }
 
-        public void AddChildren(T n)
+        public void AddChildren(Node<T> node)
         {
-            this.children.Add(n);
+            this.children.Add(node);
         }
     }
 }
