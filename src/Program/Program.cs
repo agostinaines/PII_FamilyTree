@@ -16,6 +16,7 @@ namespace Program
             
             Person Ana = new Person("Ana Martinez", 39);
             Person Martina = new Person("Martina Caetano", 18);
+            Person Teddy = new Person("Teddy", 2);
             
             
             Node<Person> n1 = new Node<Person>(Marimarta);
@@ -28,6 +29,12 @@ namespace Program
             
             Node<Person> n7 = new Node<Person>(Ana);
             Node<Person> n8 = new Node<Person>(Martina);
+            Node<Person> n9 = new Node<Person>(Teddy);
+            
+            //Personas de romi
+            // Node<Person> n10 = new Node<Person>()
+            // Node<Person> n11 = new Node<Person>()
+            // Node<Person> n12 = new Node<Person>()
             
             n1.AddChildren(n2);
             n1.AddChildren(n7);
@@ -35,6 +42,7 @@ namespace Program
             n2.AddChildren(n8);
             n4.AddChildren(n5);
             n5.AddChildren(n6);
+            n8.AddChildren(n9);
             
             
         }
