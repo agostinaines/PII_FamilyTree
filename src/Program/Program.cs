@@ -43,7 +43,9 @@ namespace Program
             n4.AddChildren(n5);
             n5.AddChildren(n6);
             n8.AddChildren(n9);
-            
+
+            Visitor<Person> personVisitor = new Visitor<Person>();
+            personVisitor.CalculateAge(n1.Children);
             
         }
     }
