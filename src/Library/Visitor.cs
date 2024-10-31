@@ -29,4 +29,34 @@ public abstract class Visitor<T>
             return age;
     }
     
+    public int GetMaxAge(List<Node<Person>> children)
+    {
+        int maxAge = 0;
+
+        foreach (var node in children)
+        {
+            if (node.Value.Age > maxAge)
+            {
+                maxAge = node.Value.Age;
+            }
+        }
+
+        return maxAge;
+    }
+    
+    public string GetLongestName(List<Node<Person>> children)
+    {
+        string longestName = string.Empty;
+
+        foreach (var node in children)
+        {
+            if (node.Value.Name.Length > longestName.Length)
+            {
+                longestName = node.Value.Name;
+            }
+        }
+
+        return longestName;
+    }
+    
 }
