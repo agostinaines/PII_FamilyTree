@@ -1,5 +1,6 @@
 ﻿using Library;
 using System;
+using System.Collections.Generic;
 
 namespace Program
 {
@@ -47,7 +48,7 @@ namespace Program
 
             PersonVisitor personVisitor = new PersonVisitor();
             
-            int totalAge = personVisitor.CalculateAge(n1);
+            int totalAge = personVisitor.GetAge(n1);
             Console.WriteLine($"La suma total de las edades de los hijos de Marimarta es: {totalAge}");
             
             int maxAge = personVisitor.GetMaxAge(n1);
