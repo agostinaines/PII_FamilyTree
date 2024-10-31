@@ -1,62 +1,73 @@
 ﻿using System.Collections.Generic;
-
-namespace Library;
 using System.Text;
 
-public abstract class Visitor<T>
+namespace Library
 {
-    public string Node
+    public abstract class Visitor<T>
     {
-        get
+        public string Node
         {
-            return this.ContentBuilder.ToString();
+            get
+            {
+                return this.ContentBuilder.ToString();
+            }
         }
-    }
 
-    protected StringBuilder ContentBuilder { get; } = new StringBuilder();
-    
-    private T value;
+        protected StringBuilder ContentBuilder { get; } = new StringBuilder();
 
-    public abstract void Visit(Node<T> node);
+        public abstract void Visit(Node<T> node);
 
-    public int CalculateAge(List<Node<Person>> children)
-    {
+        public List<Node<T>> GetDescendants(Node<T> node)
+        {
+            List<Node<T>> descendants = new List<Node<T>>();
+            descendants.Add(node);
+            
+            foreach (var child in node.Children)
+            {
+                descendants.AddRange(GetDescendants(child));
+            }
+
+            return descendants;
+        }
+
+        public int CalculateAge(List<Node<Person>> children)
+        {
             int age = 0;
             foreach (var node in children)
             {
                 age += node.Value.Age;
-            } 
+            }
             return age;
-    }
-    
-    public int GetMaxAge(List<Node<Person>> children)
-    {
-        int maxAge = 0;
-
-        foreach (var node in children)
-        {
-            if (node.Value.Age > maxAge)
-            {
-                maxAge = node.Value.Age;
-            }
         }
 
-        return maxAge;
-    }
-    
-    public string GetLongestName(List<Node<Person>> children)
-    {
-        string longestName = string.Empty;
-
-        foreach (var node in children)
+        public int GetMaxAge(List<Node<Person>> children)
         {
-            if (node.Value.Name.Length > longestName.Length)
+            int maxAge = 0;
+
+            foreach (var node in children)
             {
-                longestName = node.Value.Name;
+                if (node.Value.Age > maxAge)
+                {
+                    maxAge = node.Value.Age;
+                }
             }
+
+            return maxAge;
         }
 
-        return longestName;
+        public string GetLongestName(List<Node<Person>> children)
+        {
+            string longestName = string.Empty;
+
+            foreach (var node in children)
+            {
+                if (node.Value.Name.Length > longestName.Length)
+                {
+                    longestName = node.Value.Name;
+                }
+            }
+
+            return longestName;
+        }
     }
-    
 }

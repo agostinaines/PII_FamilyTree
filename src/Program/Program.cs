@@ -1,4 +1,5 @@
 ﻿using Library;
+using System;
 
 namespace Program
 {
@@ -44,9 +45,17 @@ namespace Program
             n5.AddChildren(n6);
             n8.AddChildren(n9);
 
-            Visitor<Person> personVisitor = new Visitor<Person>();
-            personVisitor.CalculateAge(n1.Children);
+            PersonVisitor personVisitor = new PersonVisitor();
             
+            int totalAge = personVisitor.CalculateAge(n1);
+            Console.WriteLine($"La suma total de las edades de los hijos de Marimarta es: {totalAge}");
+            
+            int maxAge = personVisitor.GetMaxAge(n1);
+            Console.WriteLine($"La edad máxima entre los descendientes de Marimarta es: {maxAge}");
+            
+            string longestName = personVisitor.GetLongestName(n1);
+            Console.WriteLine($"El nombre más largo entre los descendientes de Marimarta es: {longestName}");
+        
         }
     }
 }
